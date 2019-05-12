@@ -1,4 +1,3 @@
-import $$observable from 'symbol-observable'
 import { createChangeEmitter } from 'change-emitter'
 import { config as globalConfig } from './setObservableConfig'
 
@@ -9,7 +8,7 @@ export const createEventHandlerWithConfig = config => () => {
       const unsubscribe = emitter.listen(value => observer.next(value))
       return { unsubscribe }
     },
-    [$$observable]() {
+    '@@observable': function() {
       return this
     },
   })

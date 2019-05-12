@@ -1,6 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import rxjs5Config from '../rxjsObservableConfig'
+import { map } from 'rxjs/operators'
+import rxConfig from '../rxjsObservableConfig'
 import setObservableConfig from '../setObservableConfig'
 import componentFromStream from '../componentFromStream'
 
@@ -14,12 +15,14 @@ const testTransform = transform => {
 }
 
 test('works with RxJS 5', () => {
-  setObservableConfig(rxjs5Config)
+  setObservableConfig(rxConfig)
   testTransform(props$ =>
-    props$.map(({ n }) =>
-      <div>
-        {n * 2}
-      </div>
+    props$.pipe(
+      map(({ n }) =>
+        <div>
+          {n * 2}
+        </div>
+      )
     )
   )
 })

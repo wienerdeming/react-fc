@@ -1,5 +1,4 @@
 import { createFactory } from 'react'
-import $$observable from 'symbol-observable'
 import { componentFromStreamWithConfig } from './componentFromStream'
 import setDisplayName from './setDisplayName'
 import wrapDisplayName from './wrapDisplayName'
@@ -26,7 +25,7 @@ export const mapPropsStreamWithConfig = config => {
           unsubscribe: () => subscription.unsubscribe(),
         }
       },
-      [$$observable]() {
+      '@@observable': function() {
         return this
       },
     }))

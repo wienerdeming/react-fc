@@ -14,7 +14,7 @@ const testTransform = transform => {
   expect(div.text()).toBe('716')
 }
 
-test('works with RxJS 5', () => {
+test('works with RxJS 6', () => {
   setObservableConfig(rxConfig)
   testTransform(props$ =>
     props$.pipe(

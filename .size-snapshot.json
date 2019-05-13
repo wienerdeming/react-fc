@@ -1,9 +1,9 @@
 {
   "lib/packages/repipe/dist/Repipe.umd.js": {
     "bundled": 46183,
-    "gzipped": 4654,
-    "minified": 16529
-},
+    "minified": 16529,
+    "gzipped": 4654
+  },
   "lib/packages/repipe/dist/Repipe.min.js": {
     "bundled": 42621,
     "minified": 15249,

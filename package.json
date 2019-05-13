@@ -1,16 +1,16 @@
 {
-  "name": "recompose-build",
+  "name": "repipe-build",
   "private": true,
   "author": "Andrew Clark <acdlite@me.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/acdlite/recompose.git"
+    "url": "git://github.com/wienerdeming/repipe.git"
   },
   "license": "MIT",
   "scripts": {
     "lint": "eslint scripts src",
-    "build:recompose": "cross-env PACKAGE_NAME=recompose rollup --config scripts/rollup.config.js",
-    "test": "jest && flow check && cross-env SNAPSHOT=match npm run build:recompose",
+    "build:repipe": "cross-env PACKAGE_NAME=repipe rollup --config scripts/rollup.config.js",
+    "test": "jest && flow check && cross-env SNAPSHOT=match npm run build:repipe",
     "test:watch": "cross-env BABEL_ENV=cjs jest --watch",
     "release": "node scripts/release.js",
     "postinstall": "node scripts/installNestedPackageDeps.js",

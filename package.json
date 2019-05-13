@@ -1,16 +1,16 @@
 {
-  "name": "repipe-build",
+  "name": "re-pipe-build",
   "private": true,
   "author": "Andrew Clark <acdlite@me.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/wienerdeming/repipe.git"
+    "url": "git://github.com/wienerdeming/recomposing.git"
   },
   "license": "MIT",
   "scripts": {
     "lint": "eslint scripts src",
-    "build:repipe": "cross-env PACKAGE_NAME=repipe rollup --config scripts/rollup.config.js",
-    "test": "jest && flow check && cross-env SNAPSHOT=match npm run build:repipe",
+    "build:re-pipe": "cross-env PACKAGE_NAME=re-pipe rollup --config scripts/rollup.config.js",
+    "test": "jest && flow check && cross-env SNAPSHOT=match npm run build:re-pipe",
     "test:watch": "cross-env BABEL_ENV=cjs jest --watch",
     "release": "node scripts/release.js",
     "postinstall": "node scripts/installNestedPackageDeps.js",

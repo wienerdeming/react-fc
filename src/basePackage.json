@@ -2,11 +2,11 @@
   "author": "Andrew Clark <acdlite@me.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wienerdeming/repipe.git"
+    "url": "https://github.com/wienerdeming/re-pipe.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wienerdeming/repipe/issues"
+    "url": "https://github.com/wienerdeming/re-pipe/issues"
   },
-  "homepage": "https://github.com/wienerdeming/repipe"
+  "homepage": "https://github.com/wienerdeming/re-pipe"
 }

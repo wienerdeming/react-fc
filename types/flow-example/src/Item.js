@@ -2,8 +2,13 @@
 
 import React from 'react'
 import { css } from 'glamor'
-import { compose, defaultProps, withProps, withPropsOnChange } from 'recompose'
-import type { HOC } from 'recompose'
+import {
+  compose,
+  defaultProps,
+  withProps,
+  withPropsOnChange,
+} from 'react-rewrap'
+import type { HOC } from 'react-rewrap'
 
 // Props type of enhanced component
 // It's the only props type we need to declare using supporting recompose enhancers

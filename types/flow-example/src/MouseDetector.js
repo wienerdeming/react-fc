@@ -6,9 +6,9 @@ import {
   withHandlers,
   withProps,
   withStateHandlers,
-} from 'recompose'
+} from 'react-rewrap'
 import { css } from 'glamor'
-import type { HOC } from 'recompose'
+import type { HOC } from 'react-rewrap'
 
 // shared type
 export type MousePosition = { x: number, y: number }

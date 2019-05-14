@@ -868,25 +868,31 @@ v = f(d)
 Example:
 
 ```js
+import { combineLatest, merge } from 'rxjs';
+import { mapTo, startWith, scan, map } from 'rxjs/operators';
+import { componentFromStream, createEventHandler } from 'react-rewrap'
+
 const Counter = componentFromStream(props$ => {
   const { handler: increment, stream: increment$ } = createEventHandler()
   const { handler: decrement, stream: decrement$ } = createEventHandler()
-  const count$ = Observable.merge(
-      increment$.mapTo(1),
-      decrement$.mapTo(-1)
+  const count$ = merge(
+      increment$.pipe(mapTo(1)),
+      decrement$.pipe(mapTo(-1))
+    ).pipe(
+      startWith(0),
+      scan((count, n) => count + n, 0)
     )
-    .startWith(0)
-    .scan((count, n) => count + n, 0)
 
-  return props$.combineLatest(
-    count$,
-    (props, count) =>
-      <div {...props}>
-        Count: {count}
-        <button onClick={increment}>+</button>
-        <button onClick={decrement}>-</button>
-      </div>
-  )
+  return combineLatest(props$, count$)
+    .pipe(
+      map(([props, count]) =>
+        <div {...props}>
+          Count: {count}
+          <button onClick={increment}>+</button>
+          <button onClick={decrement}>-</button>
+        </div>
+      )
+    )
 })
 ```
 
@@ -912,48 +918,6 @@ Alternative to `componentFromStream()` that accepts an observable config and ret
 ```js
 import rxjsConfig from 'recompose/rxjsObservableConfig'
 const componentFromStream = componentFromStreamWithConfig(rxjsConfig)
-```
-
-#### RxJS 4 (legacy)
-
-```js
-import rxjs4Config from 'recompose/rxjs4ObservableConfig'
-const componentFromStream = componentFromStreamWithConfig(rxjs4Config)
-```
-
-#### most
-
-```js
-import mostConfig from 'recompose/mostObservableConfig'
-const componentFromStream = componentFromStreamWithConfig(mostConfig)
-```
-
-#### xstream
-
-```js
-import xstreamConfig from 'recompose/xstreamObservableConfig'
-const componentFromStream = componentFromStreamWithConfig(xstreamConfig)
-```
-
-#### Bacon
-
-```js
-import baconConfig from 'recompose/baconObservableConfig'
-const componentFromStream = componentFromStreamWithConfig(baconConfig)
-```
-
-#### Kefir
-
-```js
-import kefirConfig from 'recompose/kefirObservableConfig'
-const componentFromStream = componentFromStreamWithConfig(kefirConfig)
-```
-
-#### Flyd
-
-```js
-import flydConfig from 'recompose/flydObservableConfig'
-const componentFromStream = componentFromStreamWithConfig(flydConfig)
 ```
 
 ### `mapPropsStream()`

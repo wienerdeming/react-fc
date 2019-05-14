@@ -2,11 +2,11 @@
 
 import React from 'react'
 import { css } from 'glamor'
-import { compose, defaultProps, withHandlers, withProps } from 'recompose'
+import { compose, defaultProps, withHandlers, withProps } from 'react-rewrap'
 import Item from './Item'
 import { TransitionMotion, spring } from 'react-motion'
 // types
-import type { HOC } from 'recompose'
+import type { HOC } from 'react-rewrap'
 import type { MousePosition } from './MouseDetector'
 
 type ItemT = {

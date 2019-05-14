@@ -9,8 +9,8 @@
     "utilities",
     "composition"
   ],
-  "main": "dist/Repipe.cjs.js",
-  "module": "dist/Repipe.esm.js",
+  "main": "dist/ReactRewrap.cjs.js",
+  "module": "dist/ReactRewrap.esm.js",
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "change-emitter": "^0.1.2",

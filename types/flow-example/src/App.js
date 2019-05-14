@@ -1,10 +1,10 @@
 /* @flow */
 import React from 'react'
 import { css } from 'glamor'
-import { compose, defaultProps } from 'recompose'
+import { compose, defaultProps } from 'react-rewrap'
 import MouseDetector from './MouseDetector'
 import ItemsAnimator from './ItemsAnimator'
-import type { HOC } from 'recompose'
+import type { HOC } from 'react-rewrap'
 import type { MousePosition } from './MouseDetector'
 
 // Enhanced component props type

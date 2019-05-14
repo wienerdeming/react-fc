@@ -22,7 +22,7 @@ Recompose is a React utility belt for function components and higher-order compo
 [**Recompose Base Fiddle**](https://jsfiddle.net/evenchange4/p3vsmrvo/1599/) - Easy way to dive in
 
 ```
-npm install recompose --save
+npm install react-rewrap --save
 ```
 
 **📺 Watch Andrew's [talk on Recompose at React Europe](https://www.youtube.com/watch?v=zD_judE-bXk).**

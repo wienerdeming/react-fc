@@ -639,7 +639,7 @@ The default value of third parameter (`renderPropName`) is `children`. You can u
 > Check the official documents [Render Props](https://reactjs.org/docs/render-props.html#using-props-other-than-render) for more details.
 
 ```js
-import { fromRenderProps } from 'recompose';
+import { fromRenderProps } from 'react-rewrap';
 const { Consumer: ThemeConsumer } = React.createContext({ theme: 'dark' });
 const { Consumer: I18NConsumer } = React.createContext({ i18n: 'en' });
 const RenderPropsComponent = ({ render, value }) => render({ value: 1 });
@@ -916,7 +916,7 @@ Alternative to `componentFromStream()` that accepts an observable config and ret
 #### RxJS
 
 ```js
-import rxjsConfig from 'recompose/rxjsObservableConfig'
+import rxjsConfig from 'react-rewrap/rxjsObservableConfig'
 const componentFromStream = componentFromStreamWithConfig(rxjsConfig)
 ```
 
@@ -949,17 +949,26 @@ mapPropsStreamWithConfig<Stream>(
 Alternative to `mapPropsStream()` that accepts a observable config and returns a customized `mapPropsStream()` that uses the specified observable library. See `componentFromStreamWithConfig()` above.
 
 ```js
+import { combineLatest, interval } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { mapPropsStream } from 'react-rewrap'
+
 const enhance = mapPropsStream(props$ => {
-  const timeElapsed$ = Observable.interval(1000)
-  return props$.combineLatest(timeElapsed$, (props, timeElapsed) => ({
-    ...props,
-    timeElapsed
-  }))
+  const timeElapsed$ = interval(1000)
+  return combineLatest(props$, timeElapsed$)
+    .pipe(
+      map(([props, timeElapsed]) => ({
+        ...props,
+        timeElapsed
+      }))
+    )
 })
 
 const Timer = enhance(({ timeElapsed }) =>
   <div>Time elapsed: {timeElapsed}</div>
 )
+
+export default Timer
 ```
 
 ### `createEventHandler()`
@@ -1012,12 +1021,12 @@ mapPropsStream(props$ => {
 This quickly becomes tedious. Rather than performing this transform for each stream individually, `setObservableConfig()` sets a global observable transform that is applied automatically.
 
 ```js
-import Rx from 'rxjs'
-import { setObservableConfig } from 'recompose'
+import { from } from 'rxjs'
+import { setObservableConfig } from 'react-rewrap'
 
 setObservableConfig({
-  // Converts a plain ES observable to an RxJS 5 observable
-  fromESObservable: Rx.Observable.from
+  // Converts a plain ES observable to an RxJS 6 observable
+  fromESObservable: from
 })
 ```
 
@@ -1030,48 +1039,6 @@ Fortunately, you likely don't need to worry about how to configure Recompose for
 #### RxJS
 
 ```js
-import rxjsconfig from 'recompose/rxjsObservableConfig'
+import rxjsconfig from 'react-rewrap/rxjsObservableConfig'
 setObservableConfig(rxjsconfig)
-```
-
-#### RxJS 4 (legacy)
-
-```js
-import rxjs4config from 'recompose/rxjs4ObservableConfig'
-setObservableConfig(rxjs4config)
-```
-
-#### most
-
-```js
-import mostConfig from 'recompose/mostObservableConfig'
-setObservableConfig(mostConfig)
-```
-
-#### xstream
-
-```js
-import xstreamConfig from 'recompose/xstreamObservableConfig'
-setObservableConfig(xstreamConfig)
-```
-
-#### Bacon
-
-```js
-import baconConfig from 'recompose/baconObservableConfig'
-setObservableConfig(baconConfig)
-```
-
-#### Kefir
-
-```js
-import kefirConfig from 'recompose/kefirObservableConfig'
-setObservableConfig(kefirConfig)
-```
-
-#### Flyd
-
-```js
-import flydConfig from 'recompose/flydObservableConfig'
-setObservableConfig(flydConfig)
 ```

@@ -153,7 +153,7 @@ try {
   exec(`git add ${versionLoc}`)
   exec(`git commit -m "${packageName} ${newTagName}"`)
 
-  if (packageName === 're-pipe') {
+  if (packageName === 'react-rewrap') {
     log(`Tagging release... (${newTagName})`)
     exec(`git tag ${newTagName}`)
   }

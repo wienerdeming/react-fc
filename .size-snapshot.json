@@ -1,15 +1,15 @@
 {
-  "lib/packages/re-pipe/dist/RePipe.umd.js": {
-     "bundled": 46183,
-     "gzipped": 4654,
-     "minified": 16529
+  "lib/packages/react-rewrap/dist/ReactRewrap.umd.js": {
+    "bundled": 46188,
+    "gzipped": 4656,
+    "minified": 16534
+},
+  "lib/packages/react-rewrap/dist/ReactRewrap.min.js": {
+    "bundled": 42626,
+    "gzipped": 4219,
+    "minified": 15254
   },
-  "lib/packages/re-pipe/dist/RePipe.min.js": {
-     "bundled": 42621,
-     "gzipped": 4218,
-     "minified": 15249
-  },
-  "lib/packages/re-pipe/dist/RePipe.esm.js": {
+  "lib/packages/react-rewrap/dist/ReactRewrap.esm.js": {
     "bundled": 33496,
     "minified": 15726,
     "gzipped": 3732,

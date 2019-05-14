@@ -1,5 +1,5 @@
 {
-  "name": "re-pipe-build",
+  "name": "react-rewrap-build",
   "private": true,
   "author": "Andrew Clark <acdlite@me.com>",
   "repository": {
@@ -9,8 +9,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint scripts src",
-    "build:re-pipe": "cross-env PACKAGE_NAME=re-pipe rollup --config scripts/rollup.config.js",
-    "test": "jest && flow check && cross-env SNAPSHOT=match npm run build:re-pipe",
+    "build:react-rewrap": "cross-env PACKAGE_NAME=react-rewrap rollup --config scripts/rollup.config.js",
+    "test": "jest && flow check && cross-env SNAPSHOT=match npm run build:react-rewrap",
     "test:watch": "cross-env BABEL_ENV=cjs jest --watch",
     "release": "node scripts/release.js",
     "postinstall": "node scripts/installNestedPackageDeps.js",

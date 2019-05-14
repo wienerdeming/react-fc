@@ -2,11 +2,11 @@
   "author": "Andrew Clark <acdlite@me.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wienerdeming/re-pipe.git"
+    "url": "https://github.com/wienerdeming/react-rewrap.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wienerdeming/re-pipe/issues"
+    "url": "https://github.com/wienerdeming/react-rewrap/issues"
   },
-  "homepage": "https://github.com/wienerdeming/re-pipe"
+  "homepage": "https://github.com/wienerdeming/react-rewrap"
 }
